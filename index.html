@@ -5,9 +5,8 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 
-    <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <link rel="stylesheet" href="style.css" type="text/css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -19,20 +18,22 @@
     <h3>Haiku is style of traditional Japanese poetry where poems have three verses:<br>5 syllables / 7 syllables / 5 syllables.  <br> Drag and drop the word tiles to create your own haiku!</h3>
 
     <section id="haiku">
-        <div class="poem" id="first"></div><br>
-        <div class="poem" id="second"></div><br>
-        <div class="poem" id="third"></div><br>
+        <div class="droppable" id="first"></div><br>
+        <div class="droppable" id="second"></div><br>
+        <div class="droppable" id="third"></div><br>
+        <br><button id="clear">Clear all</button>
     </section>
 
     <div id="accordion">
         <h3>One Syllable</h3>
         <div>
-            <p class="draggable" class="ui-widget-content">cat</p>
-            <p class="draggable" class="ui-widget-content">dog</p>
-            <p class="draggable" class="ui-widget-content">fish</p>
+            <p class="draggable" class="one">cat</p>
+            <p class="draggable" class="one">dog</p>
+            <p class="draggable" class="one">fish</p>
         </div>
         <h3>Two Syllables</h3>
         <div>
+            <p class="draggable" class="two">tiger</p>
         </div>
         <h3>Three Syllables</h3>
         <div>

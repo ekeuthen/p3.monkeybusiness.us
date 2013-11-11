@@ -1,18 +1,32 @@
-$(function() {
-    $( "#accordion" ).accordion({
+$(document).ready(function() {
+    $( '#accordion' ).accordion({
     	collapsible: true,
     	active: false
     });
-});
 
-$(function() {
-    $( ".draggable" ).draggable({ 
-    	containment: 'html',
-    	helper: 'clone',
-    	stop: function(event, ui) {
-        	$(ui.helper).clone(true)
-        	.removeClass('box ui-draggable ui-draggable-dragging').
-        	addClass('box-clone').appendTo('body');
+    $(".droppable").droppable({
+        accept: '.draggable',
+        drop: function(event, ui) {
+            var $clone = ui.helper.clone();
+            if (!$clone.is('.inside-droppable')) {
+                $(this).append($clone.addClass('inside-droppable').draggable({
+                    containment: '.droppable',
+					tolerance: 'fit',
+					position: 'relaitve'
+                }));
+            }
         }
     });
+
+    $(".draggable").draggable({
+        helper: 'clone',
+		revert:"invalid"
+    });
+
+	$('#clear').click(function() {
+		location.reload();
+	});
+
 });
+
+

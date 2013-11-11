@@ -7,14 +7,8 @@ body {
 	background-size: cover;
 	color:white;
 	font-size: 120%;
-	width:80%;
+	width:70%;
 	margin:auto;
-}
-
-.poem {
-	height: 50px;
-	background-color: white;
-	border-radius: 15px;
 }
 
 #haiku {
@@ -31,9 +25,33 @@ body {
 
 #accordion {
 	width: 270px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	color: purple;
 }
 
 .draggable {
 	border: black 1px solid;
-	color:purple;
+	color:#660066;
+	width: auto;
+	border-radius: 8px;
+	padding: 5px;
+}
+	
+.droppable
+{
+	height: 50px;
+	background-color: white;
+	border-radius: 15px;
+}
+
+button {
+	font-weight: bolder;
+	font-size:120%;
+	color: #555555;
+	border-radius: 10px;
+}
+
+.ui-accordion-header {
+	font-weight: bolder;
 }
