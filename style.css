@@ -55,3 +55,14 @@ button {
 .ui-accordion-header {
 	font-weight: bolder;
 }
+
+.instructions {
+	font-weight: normal;
+	font-size: 80%;
+}
+
+#trash
+{
+	height: 100px;
+	background-color: transparent;
+}

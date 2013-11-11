@@ -10,9 +10,10 @@ $(document).ready(function() {
             var $clone = ui.helper.clone();
             if (!$clone.is('.inside-droppable')) {
                 $(this).append($clone.addClass('inside-droppable').draggable({
-                    containment: '.droppable',
+                    //containment: '.droppable',
 					tolerance: 'fit',
-					position: 'relaitve'
+					position: 'relaitve',
+					revert:"invalid"
                 }));
             }
         }
@@ -26,6 +27,12 @@ $(document).ready(function() {
 	$('#clear').click(function() {
 		location.reload();
 	});
+
+	$('#trash').droppable({
+        drop: function(event, ui) {
+            $(ui.draggable).remove();
+        }
+    });
 
 });
 
