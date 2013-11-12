@@ -15,42 +15,114 @@
 
 <body>
     <h1>Happy Haiku!</h1>
+    <!--Helpful haiku reference: http://www.poets.org/viewmedia.php/prmMID/5782-->
     <h3>Haiku is style of traditional Japanese poetry where poems have three verses:<br>5 syllables / 7 syllables / 5 syllables.  <br> Drag and drop the word tiles to create your own haiku!</h3>
 
     <section id="haiku">
-        <div class="droppable" id="first"></div><br>
-        <div class="droppable" id="second"></div><br>
-        <div class="droppable" id="third"></div><br>
-        <img src="trash_can.png" alt="trash can" height="100" width="100" class="droppable" id="trash">
+        <div class="droppable" id="first"></div>count - <span id="incrementor1">0</span>
+        <img src="check.png" alt="check" height="25" width="25" class="check"><br>
+        <div class="droppable" id="second"></div>count - <span id="incrementor2">0</span>
+        <img src="check.png" alt="check" height="25" width="25" class="check"><br>
+        <div class="droppable" id="third"></div>count - <span id="incrementor3">0</span>
+        <img src="check.png" alt="check" height="25" width="25" class="check"><br>
+
+        <br><img src="trash_can.png" alt="trash can" height="100" width="100" class="droppable" id="trash">
         <button id="clear">Clear all</button>
         <p class="instructions">(to remove unwanted words from the poem, drag them to trash can)</p>
     </section>
 
     <div id="accordion">
+        <!--Thanks to http://www.yougorhymes.com/site/advanced-rhyming for word syllable help!-->
         <h3>One Syllable</h3>
         <div>
-            <p class="draggable one">cat</p>
-            <p class="draggable one">dog</p>
-            <p class="draggable one">fish</p>
+            <p class="draggable one">the</p>
+            <p class="draggable one">sky</p>
+            <p class="draggable one">a</p>
+            <p class="draggable one">for</p>
+            <p class="draggable one">over</p>
+            <p class="draggable one">hippo</p>
+            <p class="draggable one">on</p>
+            <p class="draggable one">you</p>
+            <p class="draggable one">heart</p>
+            <p class="draggable one">near</p>
         </div>
         <h3>Two Syllables</h3>
         <div>
-            <p class="draggable two">tiger</p>
+            <p class="draggable two">again</p>
+            <p class="draggable two">broken</p>
+            <p class="draggable two">country</p>
+            <p class="draggable two">alone</p>
+            <p class="draggable two">music</p>
+            <p class="draggable two">river</p>
+            <p class="draggable two">above</p>
+            <p class="draggable two">morning</p>
+            <p class="draggable two">revenge</p>
+            <p class="draggable two">during</p>
         </div>
         <h3>Three Syllables</h3>
         <div>
+            <p class="draggable three">family</p>
+            <p class="draggable three">chocolate</p>
+            <p class="draggable three">happiness</p>
+            <p class="draggable three">inernal</p>
+            <p class="draggable three">history</p>
+            <p class="draggable three">together</p>
+            <p class="draggable three">energy</p>
+            <p class="draggable three">celebrate</p>
+            <p class="draggable three">dangerous</p>
+            <p class="draggable three">dinosaur</p>
         </div>
         <h3>Four Syllables</h3>
         <div>
+            <p class="draggable four">beautiful</p>
+            <p class="draggable four">silhouette</p>
+            <p class="draggable four">belligerent</p>
+            <p class="draggable four">alligator</p>
+            <p class="draggable four">vegetables</p>
+            <p class="draggable four">destination</p>
+            <p class="draggable four">necessary</p>
+            <p class="draggable four">sanctuary</p>
+            <p class="draggable four">lonliness</p>
+            <p class="draggable four">infinity</p>
         </div>
         <h3>Five Syllables</h3>
         <div>
+            <p class="draggable five">unidentified</p>
+            <p class="draggable five">sporadically</p>
+            <p class="draggable five">apocalypse</p>
+            <p class="draggable five">abomination</p>
+            <p class="draggable five">curiosity</p>
+            <p class="draggable five">electricity</p>
+            <p class="draggable five">serendipity</p>
+            <p class="draggable five">trigonometry</p>
+            <p class="draggable five">refridgerator</p>
+            <p class="draggable five">hippopotamus</p>
         </div>
         <h3>Six Syllables</h3>
         <div>
+            <p class="draggable six">extraterrestrial</p>
+            <p class="draggable six">responsibility</p>
+            <p class="draggable six">idiosyncrasy</p>
+            <p class="draggable six">identification</p>
+            <p class="draggable six">automatically</p>
+            <p class="draggable six">apprehensiveness</p>
+            <p class="draggable six">spirituality</p>
+            <p class="draggable six">ameliorated</p>
+            <p class="draggable six">municipality</p>
+            <p class="draggable six">counterrevolution</p>
         </div>
         <h3>Seven Syllables</h3>
         <div>
+            <p class="draggable seven">environmentalism</p>
+            <p class="draggable seven">decriminalization</p>
+            <p class="draggable seven">characterisically</p>
+            <p class="draggable seven">industrialization</p>
+            <p class="draggable seven">individuality</p>
+            <p class="draggable seven">enthusiastically</p>
+            <p class="draggable seven">oversimplification</p>
+            <p class="draggable seven">maneuverablity</p>
+            <p class="draggable seven">unidentifiable</p>
+            <p class="draggable seven">irresponsibility</p>
         </div>
     </div><br>
 

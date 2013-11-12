@@ -7,7 +7,7 @@ body {
 	background-size: cover;
 	color:white;
 	font-size: 120%;
-	width:70%;
+	width:75%;
 	margin:auto;
 }
 
@@ -35,7 +35,9 @@ body {
 	color:#660066;
 	width: auto;
 	border-radius: 8px;
-	padding: 5px;
+	padding: 1px;
+	margin: 5px 5px;
+	display: inline;
 }
 	
 .droppable
@@ -43,6 +45,8 @@ body {
 	height: 50px;
 	background-color: white;
 	border-radius: 15px;
+	display: inline-block;
+	margin: 10px 10px 0px 0px;
 }
 
 button {
@@ -61,8 +65,17 @@ button {
 	font-size: 80%;
 }
 
-#trash
-{
+#trash { 
 	height: 100px;
 	background-color: transparent;
+}
+
+#clear {
+	margin: 30px;
+	vertical-align: top;
+}
+
+.check {
+	padding: 5px 5px 0px 5px;
+	display: none;
 }
