@@ -19,11 +19,22 @@
     <h3>Haiku is style of traditional Japanese poetry where poems have three verses:<br>5 syllables / 7 syllables / 5 syllables.  <br> Drag and drop the word tiles to create your own haiku!</h3>
 
     <section id="haiku">
-        <div class="droppable" id="first"></div>count: <span id="incrementor1">0</span>
+        <div class="outer_droppable" id="line1">
+            <div class="droppable" id="first"></div>
+        </div>
+        count: <span id="incrementor1">0</span>
         <img src="check.png" alt="check" height="25" width="25" class="check"><br>
-        <div class="droppable" id="second"></div>count: <span id="incrementor2">0</span>
+
+        <div class="outer_droppable" id="line2">
+            <div class="droppable" id="second"></div>
+        </div>
+        count: <span id="incrementor2">0</span>
         <img src="check.png" alt="check" height="25" width="25" class="check"><br>
-        <div class="droppable" id="third"></div>count: <span id="incrementor3">0</span>
+        
+        <div class="outer_droppable" id="line3">
+            <div class="droppable" id="third"></div>
+        </div>
+        count: <span id="incrementor3">0</span>
         <img src="check.png" alt="check" height="25" width="25" class="check"><br>
 
         <br><img src="trash_can.png" alt="trash can" height="100" width="100" class="droppable" id="trash">

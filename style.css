@@ -15,12 +15,30 @@ body {
 	float:right;
 }
 
+#line1, #line3 {
+	width:400px;
+	height: 50px;
+	background-color: white;
+	border-radius: 15px;
+	display: inline-block;
+	margin: 10px 10px 0px 0px;
+}
+
 #first, #third {
-	width: 400px;
+	width: 380px;
+}
+
+#line2 {
+	width: 560px;
+	height: 50px;
+	background-color: white;
+	border-radius: 15px;
+	display: inline-block;
+	margin: 10px 10px 0px 0px;
 }
 
 #second {
-	width: 560px;
+	width: 540px;
 }
 
 #accordion {
@@ -40,9 +58,13 @@ body {
 	display: inline;
 }
 	
+.draggable:hover {
+	cursor: pointer;
+}
+
 .droppable
 {
-	height: 50px;
+	height: 30px;
 	background-color: white;
 	border-radius: 15px;
 	display: inline-block;

@@ -13,7 +13,8 @@ $(document).ready(function() {
             var $clone = ui.helper.clone(); 
             if (!$clone.is('.inside-droppable')) { //when word is initially dropped in verse
                 $(this).append($clone.addClass('inside-droppable').draggable({
-					revert:"invalid" //clone reverts to original position if not dropped approprately
+					revert:"invalid", //clone reverts to original position if not dropped approprately
+                    snap: ".droppable,.draggable"
                 }));
             }
             else { //when word is subsequently moved between verses, update DOM
@@ -45,16 +46,18 @@ $(document).ready(function() {
             }
 
             // increment counter
-            var $dropspot = $(this).next('span');
+            var $dropspot = $(this).parent().next('span'); 
             var $value = parseInt($($dropspot).text(), 10) + $increment;
 			$($dropspot).text($value);
 
 			//check if verse has enough syllables for given line; if so, display checkmark
 			$verse = $dropspot.prev('div');
-			if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#second"))) { 
+            console.log('what is the verse!');
+            console.log($verse);
+			if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#line2"))) { 
 				$dropspot.next('img').show();
 			}
-			else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#first"))||($verse.is("#third")))) {
+			else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#line1"))||($verse.is("#line3")))) {
 				$dropspot.next('img').show();
 			}
             else {
@@ -89,16 +92,16 @@ $(document).ready(function() {
         else if ($($target).hasClass('seven')) {
             $decrement = 7;
         }
-		var $dropspot = $(this).next('span');
+		var $dropspot = $(this).parent().next('span');
 	    var $value = parseInt($($dropspot).text(), 10) - $decrement;
 		$($dropspot).text($value);
 
         //check if verse has enough syllables for given line; if so, display checkmark
         $verse = $dropspot.prev('div');
-        if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#second"))) { 
+        if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#line2"))) { 
             $dropspot.next('img').show();
         }
-        else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#first"))||($verse.is("#third")))) {
+        else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#line1"))||($verse.is("#line3")))) {
             $dropspot.next('img').show();
         }
         else {
@@ -108,6 +111,8 @@ $(document).ready(function() {
 
     // draggable functionality
     $(".draggable").draggable({
+        cursor: 'pointer',
+        snap: ".droppable,.draggable",
         helper: 'clone', //create a clone to drag
 		revert:"invalid" //if object is not dropped appropriately, revert to original position
     });
