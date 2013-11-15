@@ -6,7 +6,7 @@ body {
 	background:url(night.jpg) no-repeat center center fixed; 
 	background-size: cover;
 	color:white;
-	font-size: 120%;
+	font-size: 110%;
 	width:75%;
 	margin:auto;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 #accordion {
-	width: 270px;
+	width: 300px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bolder;
 	color: purple;
@@ -53,9 +53,9 @@ body {
 	color:#660066;
 	width: auto;
 	border-radius: 8px;
-	padding: 1px;
-	margin: 5px 5px;
-	display: inline;
+	padding: 5px;
+	margin: 1px;
+	display: -webkit-inline-box;
 }
 	
 .draggable:hover {
@@ -100,4 +100,9 @@ button {
 .check {
 	padding: 5px 5px 0px 5px;
 	display: none;
+}
+
+.ui-accordion .ui-accordion-content{
+	padding: 10px;
+	text-align: left;
 }
