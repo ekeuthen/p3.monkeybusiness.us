@@ -16,6 +16,7 @@ $(document).ready(function() {
 					revert:"invalid", //clone reverts to original position if not dropped approprately
                     snap: ".droppable,.draggable"
                 }));
+                $clone.addClass("droppable2");
             }
             else { //when word is subsequently moved between verses, update DOM
                 $(this).append(ui.draggable);
@@ -124,6 +125,7 @@ $(document).ready(function() {
 
 	// delete words functionality
 	$('#trash').droppable({
+        accept: '.droppable2',
         drop: function(event, ui) {
             $(ui.draggable).remove();
         }
