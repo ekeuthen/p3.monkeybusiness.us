@@ -22,93 +22,62 @@ $(document).ready(function() {
                 $(this).append(ui.draggable);
             }
 
-            // check how much counter should be incremented
-            var $increment = 0;
-            if ($clone.hasClass('one')) {
-            	$increment = 1;
-            }
-            if ($clone.hasClass('two')) {
-            	$increment = 2;
-            }
-            if ($clone.hasClass('three')) {
-            	$increment = 3;
-            }
-            if ($clone.hasClass('four')) {
-            	$increment = 4;
-            }
-            if ($clone.hasClass('five')) {
-            	$increment = 5;
-            }
-            if ($clone.hasClass('six')) {
-            	$increment = 6;
-            }
-            if ($clone.hasClass('seven')) {
-            	$increment = 7;
-            }
+            //for each verse, iterate through to update counter
+            var $poem = $('#haiku');
+            var $verses = $poem.children('div').find('.droppable');
+            $verses.each(function(i) {
 
-            // increment counter
-            var $dropspot = $(this).parent().next('span'); 
-            var $value = parseInt($($dropspot).text(), 10) + $increment;
-			$($dropspot).text($value);
+                //determine how much to increment counter by looping through line's children words
+                console.log('going through verse loop!');
+                console.log($(this));
+                var $children = $(this).children();
+                var $totalIncrement = 0;
+                $children.each(function(i) { 
+                var $increment = 0;
+                    if ($(this).hasClass('one')) {
+                        $increment = 1;
+                    }
+                    else if ($(this).hasClass('two')) {
+                        $increment = 2;
+                    }
+                    else if ($(this).hasClass('three')) {
+                        $increment = 3;
+                    }
+                    else if ($(this).hasClass('four')) {
+                        $increment = 4;
+                    }
+                    else if ($(this).hasClass('five')) {
+                        $increment = 5;
+                    }
+                    else if ($(this).hasClass('six')) {
+                        $increment = 6;
+                    }
+                    else if ($(this).hasClass('seven')) {
+                        $increment = 7;
+                    }
+                    $totalIncrement += $increment;
+                });
 
-			//check if verse has enough syllables for given line; if so, display checkmark
-			$verse = $dropspot.prev('div');
-            console.log('what is the verse!');
-            console.log($verse);
-			if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#line2"))) { 
-				$dropspot.next('img').show();
-			}
-			else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#line1"))||($verse.is("#line3")))) {
-				$dropspot.next('img').show();
-			}
-            else {
-                $dropspot.next('img').hide();
-            }
+                // increment counter based on totalIncrement
+                var $dropspot = $(this).parent().next('span'); 
+                var $value = $totalIncrement;
+                $($dropspot).text($value);
 
+                //check if verse has enough syllables for given line; if so, display checkmark
+                $verse = $dropspot.prev('div');
+                if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#line2"))) { 
+                    $dropspot.next('img').show();
+                }
+                else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#line1"))||($verse.is("#line3")))) {
+                    $dropspot.next('img').show();
+                }
+                else {
+                    $dropspot.next('img').hide();
+                }
+
+            });
         }
     });
-
-	//decrement counter when an object is removed from a verse
-	$(".droppable").mousedown(function(e) {
-        var $target = e.target;
-        var $decrement = 0;
-        if ($($target).hasClass('one')) {
-            $decrement = 1;
-        }
-        else if ($($target).hasClass('two')) {
-            $decrement = 2;
-        }
-        else if ($($target).hasClass('three')) {
-            $decrement = 3;
-        }
-        else if ($($target).hasClass('four')) {
-            $decrement = 4;
-        }
-        else if ($($target).hasClass('five')) {
-            $decrement = 5;
-        }
-        else if ($($target).hasClass('six')) {
-            $decrement = 6;
-        }
-        else if ($($target).hasClass('seven')) {
-            $decrement = 7;
-        }
-		var $dropspot = $(this).parent().next('span');
-	    var $value = parseInt($($dropspot).text(), 10) - $decrement;
-		$($dropspot).text($value);
-
-        //check if verse has enough syllables for given line; if so, display checkmark
-        $verse = $dropspot.prev('div');
-        if ((parseInt($($dropspot).text()) == 7) && ($verse.is("#line2"))) { 
-            $dropspot.next('img').show();
-        }
-        else if ((parseInt($($dropspot).text()) == 5) && (($verse.is("#line1"))||($verse.is("#line3")))) {
-            $dropspot.next('img').show();
-        }
-        else {
-            $dropspot.next('img').hide();
-        }
-	});
 
     // draggable functionality
     $(".draggable").draggable({
@@ -132,5 +101,3 @@ $(document).ready(function() {
     });
 
 });
-
-
