@@ -32,8 +32,6 @@ $(document).ready(function() {
         $verses.each(function(i) {
 
             //determine how much to increment counter by looping through line's children words
-            console.log('going through verse loop!');
-            console.log($(this));
             var $children = $(this).children();
             var $totalIncrement = 0;
             $children.each(function(i) { 
