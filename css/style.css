@@ -3,7 +3,7 @@ body {
 	text-align: center;
 	font-weight: bolder;
 	/*image credit: http://upload.wikimedia.org/wikipedia/commons/4/4f/Summit-lake-wv-night-sky-reflection_-_West_Virginia_-_ForestWander.jpg*/
-	background:url(night.jpg) no-repeat center center fixed; 
+	background:url(../images/night.jpg) no-repeat center center fixed; 
 	background-size: cover;
 	color:white;
 	font-size: 110%;
