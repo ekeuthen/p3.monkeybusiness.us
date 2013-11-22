@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-	// display word tiles in accordion
+    // display word tiles in accordion
     $( '#accordion' ).accordion({
-    	collapsible: true,
-    	active: false
+        collapsible: true,
+        active: false
     });
 
     // allow items to be cloned and dropped
@@ -13,7 +13,7 @@ $(document).ready(function() {
             var clone = ui.helper.clone(); 
             if (!clone.is('.inside-droppable')) { //when word is initially dropped in verse
                 $(this).append(clone.addClass('inside-droppable').draggable({
-					revert:"invalid", //clone reverts to original position if not dropped approprately
+                                        revert:"invalid", //clone reverts to original position if not dropped approprately
                     snap: ".droppable,.draggable"
                 }));
                 clone.addClass("droppable2");
@@ -35,29 +35,24 @@ $(document).ready(function() {
             var children = $(this).children();
             var totalIncrement = 0;
             children.each(function(i) { 
-            var increment = 0;
-                if ($(this).hasClass('one')) {
-                    increment = 1;
+                var increment = 0;
+                //get all classes in string
+                var classNameList = $(this).attr('class');
+                //turn classNameList string into an array of classes
+                var className = classNameList.split(" ");
+                for(i = 0; i < className.length; i++) {
+                    switch (className[i]) {
+                        case 'one': increment = 1; break;
+                        case 'two': increment = 2; break;
+                        case 'three': increment = 3; break;
+                        case 'four': increment = 4; break;
+                        case 'five': increment = 5; break;
+                        case 'six': increment = 6; break;
+                        case 'seven': increment = 7; break;
+                        default: increment = 0;
+                    }
+                    totalIncrement += increment;
                 }
-                else if ($(this).hasClass('two')) {
-                    increment = 2;
-                }
-                else if ($(this).hasClass('three')) {
-                    increment = 3;
-                }
-                else if ($(this).hasClass('four')) {
-                    increment = 4;
-                }
-                else if ($(this).hasClass('five')) {
-                    increment = 5;
-                }
-                else if ($(this).hasClass('six')) {
-                    increment = 6;
-                }
-                else if ($(this).hasClass('seven')) {
-                    increment = 7;
-                }
-                totalIncrement += increment;
             });
 
             // increment counter based on totalIncrement
@@ -84,16 +79,16 @@ $(document).ready(function() {
         cursor: 'pointer',
         snap: ".droppable,.draggable",
         helper: 'clone', //create a clone to drag
-		revert:"invalid" //if object is not dropped appropriately, revert to original position
+                revert:"invalid" //if object is not dropped appropriately, revert to original position
     });
 
-	// clear screen 
-	$('#clear').click(function() {
-		location.reload();
-	});
+        // clear screen 
+        $('#clear').click(function() {
+                location.reload();
+        });
 
-	// delete individual word tiles
-	$('#trash').droppable({
+        // delete individual word tiles
+        $('#trash').droppable({
         accept: '.droppable2',
         drop: function(event, ui) {
             $(ui.draggable).remove();
