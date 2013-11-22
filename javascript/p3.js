@@ -91,7 +91,7 @@ $(document).ready(function() {
         accept: '.droppable2',
         drop: function(event, ui) {
             $(ui.draggable).remove();
-            updateCounters();
+            determineSyllables();
         }
     });
 
