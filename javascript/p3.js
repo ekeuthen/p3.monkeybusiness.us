@@ -13,7 +13,7 @@ $(document).ready(function() {
             var clone = ui.helper.clone(); 
             if (!clone.is('.inside-droppable')) { //when word is initially dropped in verse
                 $(this).append(clone.addClass('inside-droppable').draggable({
-                                        revert:"invalid", //clone reverts to original position if not dropped approprately
+                    revert:"invalid", //clone reverts to original position if not dropped approprately
                     snap: ".droppable,.draggable"
                 }));
                 clone.addClass("droppable2");
@@ -21,22 +21,20 @@ $(document).ready(function() {
             else { //when word is subsequently moved between verses, update DOM
                 $(this).append(ui.draggable);
             }
-            updateCounters();
+            determineSyllables();
         }
     });
 
     // iterate through each verse's words to determine count
-    function updateCounters() {
+    function determineSyllables() {
         var poem = $('#haiku');
         var verses = poem.children('div').find('.droppable');
         verses.each(function(i) {
-
             //determine how much to increment counter by looping through line's children words
             var children = $(this).children();
             var totalIncrement = 0;
             children.each(function(i) { 
                 var increment = 0;
-                //get all classes in string
                 var classNameList = $(this).attr('class');
                 //turn classNameList string into an array of classes
                 var className = classNameList.split(" ");
@@ -54,24 +52,25 @@ $(document).ready(function() {
                     totalIncrement += increment;
                 }
             });
-
-            // increment counter based on totalIncrement
             var dropspot = $(this).parent().next('span'); 
-            var value = totalIncrement;
-            $(dropspot).text(value);
-
-            // hide / display checkmark indicating complete verse
-            var verse = dropspot.prev('div');
-            if ((parseInt($(dropspot).text()) == 7) && (verse.is("#line2"))) { 
-                dropspot.next('img').show();
-            }
-            else if ((parseInt($(dropspot).text()) == 5) && ((verse.is("#line1"))||(verse.is("#line3")))) {
-                dropspot.next('img').show();
-            }
-            else {
-                dropspot.next('img').hide();
-            }
+            updateCounter(dropspot, totalIncrement);
         });
+    }
+
+    // increment counter based on totalIncrement and
+    // determine if success checkmark should be displayed based on haiku syllable rules
+    function updateCounter(dropspot, totalIncrement) {
+        $(dropspot).text(totalIncrement);
+        var verse = dropspot.prev('div');
+        if ((parseInt($(dropspot).text()) == 7) && (verse.is("#line2"))) { 
+            dropspot.next('img').show();
+        }
+        else if ((parseInt($(dropspot).text()) == 5) && ((verse.is("#line1"))||(verse.is("#line3")))) {
+            dropspot.next('img').show();
+        }
+        else {
+            dropspot.next('img').hide();
+        }
     }
 
     // allow items to be dragged and cloned
@@ -79,12 +78,12 @@ $(document).ready(function() {
         cursor: 'pointer',
         snap: ".droppable,.draggable",
         helper: 'clone', //create a clone to drag
-                revert:"invalid" //if object is not dropped appropriately, revert to original position
+        revert:"invalid" //if object is not dropped appropriately, revert to original position
     });
 
         // clear screen 
         $('#clear').click(function() {
-                location.reload();
+            location.reload();
         });
 
         // delete individual word tiles
