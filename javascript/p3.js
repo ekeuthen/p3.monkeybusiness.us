@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    // display word tiles in accordion
+    // display word tiles in accordion will collapsed panels
     $( '#accordion' ).accordion({
         collapsible: true,
         active: false
@@ -9,11 +9,11 @@ $(document).ready(function() {
     // allow items to be cloned and dropped
     $(".droppable").droppable({
         accept: '.draggable', //only objects tagged as draggable will be accepted
-        drop: function(event, ui) {
+        drop: function(event, ui) {  //upon drop, set clone's properties
             var clone = ui.helper.clone(); 
             if (!clone.is('.inside-droppable')) { //when word is initially dropped in verse
                 $(this).append(clone.addClass('inside-droppable').draggable({
-                    revert:"invalid", //clone reverts to original position if not dropped approprately
+                    revert:"invalid", 
                     snap: ".droppable,.draggable"
                 }));
                 clone.addClass("droppable2");
@@ -29,11 +29,11 @@ $(document).ready(function() {
     function determineSyllables() {
         var poem = $('#haiku');
         var verses = poem.children('div').find('.droppable');
-        verses.each(function(i) {
+        verses.each(function() {
             //determine how much to increment counter by looping through line's children words
             var children = $(this).children();
             var totalIncrement = 0;
-            children.each(function(i) { 
+            children.each(function() { 
                 var increment = 0;
                 var classNameList = $(this).attr('class');
                 //turn classNameList string into an array of classes
@@ -73,12 +73,12 @@ $(document).ready(function() {
         }
     }
 
-    // allow items to be dragged and cloned
+    // allow items to be dragged and cloned; set draggable properties
     $(".draggable").draggable({
         cursor: 'pointer',
         snap: ".droppable,.draggable",
-        helper: 'clone', //create a clone to drag
-        revert:"invalid" //if object is not dropped appropriately, revert to original position
+        helper: 'clone', 
+        revert:"invalid" 
     });
 
         // clear screen 
@@ -87,6 +87,7 @@ $(document).ready(function() {
         });
 
         // delete individual word tiles
+        // only tiles already in poem may be deleted
         $('#trash').droppable({
         accept: '.droppable2',
         drop: function(event, ui) {

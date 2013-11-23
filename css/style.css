@@ -1,3 +1,5 @@
+/*---------- element rules ----------*/
+
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
@@ -9,6 +11,31 @@ body {
 	font-size: 110%;
 	width:75%;
 	margin:auto;
+}
+
+button {
+	font-weight: bolder;
+	font-size:120%;
+	color: #555555;
+	border-radius: 10px;
+}
+
+/*---------- id rules ----------*/
+
+#accordion {
+	width: 300px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	color: purple;
+}
+
+#clear {
+	margin: 30px;
+	vertical-align: top;
+}
+
+#first, #third {
+	width: 380px;
 }
 
 #haiku {
@@ -24,10 +51,6 @@ body {
 	margin: 10px 10px 0px 0px;
 }
 
-#first, #third {
-	width: 380px;
-}
-
 #line2 {
 	width: 560px;
 	height: 50px;
@@ -41,11 +64,16 @@ body {
 	width: 540px;
 }
 
-#accordion {
-	width: 300px;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bolder;
-	color: purple;
+#trash { 
+	height: 100px;
+	background-color: transparent;
+}
+
+/*---------- class rules ----------*/
+
+.check {
+	padding: 5px 5px 0px 5px;
+	display: none;
 }
 
 .draggable {
@@ -71,38 +99,16 @@ body {
 	margin: 10px 10px 0px 0px;
 }
 
-button {
-	font-weight: bolder;
-	font-size:120%;
-	color: #555555;
-	border-radius: 10px;
-}
-
-.ui-accordion-header {
-	font-weight: bolder;
-}
-
 .instructions {
 	font-weight: normal;
 	font-size: 80%;
 }
 
-#trash { 
-	height: 100px;
-	background-color: transparent;
-}
-
-#clear {
-	margin: 30px;
-	vertical-align: top;
-}
-
-.check {
-	padding: 5px 5px 0px 5px;
-	display: none;
-}
-
 .ui-accordion .ui-accordion-content{
 	padding: 10px;
 	text-align: left;
+}
+
+.ui-accordion-header {
+	font-weight: bolder;
 }
