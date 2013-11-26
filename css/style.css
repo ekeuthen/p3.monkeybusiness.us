@@ -9,7 +9,7 @@ body {
 	background-size: cover;
 	color:white;
 	font-size: 110%;
-	width:75%;
+	width:80%;
 	margin:auto;
 }
 
@@ -83,7 +83,7 @@ button {
 	border-radius: 8px;
 	padding: 5px;
 	margin: 1px;
-	display: -webkit-inline-box;
+	display: inline-block;
 }
 	
 .draggable:hover {
